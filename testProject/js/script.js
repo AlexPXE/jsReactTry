@@ -14,7 +14,7 @@
 
 'use strict';
 
-document.addEventListener('DOM', () => { 	//when DOM loaded
+document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		//MOVIE DB
 	const movieDB = {
 		movies: [
@@ -94,10 +94,14 @@ document.addEventListener('DOM', () => { 	//when DOM loaded
 		//cart = filmsItems.querySelector('::before');
 
 	//FUNCTIONS
-	function cutItem(str, l = 18){	
-		
+	function cutItem(str, l = 18){			//cut item
 		return str.substr(0, l) + "...";
 	}
+	
+	function removeAdv(advBlock){
+		advBlock.forEach(val => val.remove());  //remove advertising imgs
+	}
+	
 
 		//Add capital letter
 	function capLetter( word){
@@ -113,7 +117,7 @@ document.addEventListener('DOM', () => { 	//when DOM loaded
 		films.forEach( (val, ind) => {
 			filmsList.innerHTML += `
 				<li class = 'promo__interactive-item'>
-					${ind + 1}. ${( (val > 21) && (cutItem(val)) || val)}
+					${ind + 1}. ${( (val.length > 21) && (cutItem(val)) || val)}
 					<div class="delete"></div>
 				<li>`;
 		});	
@@ -173,7 +177,8 @@ document.addEventListener('DOM', () => { 	//when DOM loaded
 	movieDB.addMovie = cashForDB.movieCash( movieDB.addMovie, movieDB); //wrap functions
 	movieDB.remove = cashForDB.removeFromCash( movieDB.remove, movieDB);
 
-	advImg.forEach(val => val.remove());  //remove advertising imgs
+	removeAdv(advImg);  //remove advertising imgs
+	
 
 	displayFilmList();
 
