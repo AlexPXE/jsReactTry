@@ -8,21 +8,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexPXE/Project_4.git"
+    "url": ""
   },
   "author": "Alexander",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlexPXE/Project_4/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/AlexPXE/Project_4#readme",
+  "homepage": "",
   "devDependencies": {
     "browser-sync": "^2.27.4",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^5.0.0",
     "gulp-sass": "^5.0.0",
+    "gulp-uglify-es": "^3.0.0",
     "sass": "^1.35.2"
   },
   "dependencies": {
