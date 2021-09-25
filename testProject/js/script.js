@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 
 		sort: function(){
 			return this.movies.sort((a, b) => {
-				if(a.toLowerCase() > b.toLowerCase()){
+				if( a.toLowerCase() > b.toLowerCase() ){
 					return 1;
 				}
-				if(a.toLowerCase() < b.toLowerCase()){
+				if( a.toLowerCase() < b.toLowerCase() ){
 					return -1;
 				}
 				return 0;
@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		},
 		
 		addMovie: function(movie){    //Add movie to DB				
-			this.movies.push( capLetter(movie)); 
+			this.movies.push( capLetter(movie) ); 
 		},
 
 		remove: function(ind){
 
-			( ind >= 0) && 
-			( ind < this.movies.length) && 
-			( this.movies.splice(ind, 1));
+			(ind >= 0) && 
+			(ind < this.movies.length) && 
+			( this.movies.splice(ind, 1) );
 		}
 	};
 
@@ -59,37 +59,37 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		movieCash: function (func, db, cash = this.cashSet){		
 
 			db.movies.forEach( (val) => {
-				cash.add( val.toLowerCase());				//all strings in lowercase
+				cash.add(val.toLowerCase());				//all strings in lowercase
 			});
 
-			return function( val) {
+			return function(val) {
 				(
-					cash.has( val.toLowerCase()) && !( console.log( "Movie alredy added!"))
+					cash.has( val.toLowerCase() ) && !( console.log( "Movie alredy added!") )
 				) || (
-					cash.add( val.toLowerCase()), func.call( db, val)					
+					cash.add( val.toLowerCase() ), func.call(db, val)					
 				);			
 			};
 		},
 				//remove element from cash
-		removeFromCash:	function ( func, db, cash = this.cashSet){
+		removeFromCash:	function (func, db, cash = this.cashSet){
 
-			return function( ind){			
+			return function(ind){			
 				cash.delete( db.movies[ind].toLowerCase());
-				func.call( db, ind);			
+				func.call(db, ind);			
 			};
 		}
 	};
 
 	//VALUES
-	const adv = document.querySelector( '.promo__adv'), 						//sponsor advertising block
-		advImg = adv.querySelectorAll( 'img'), 								//advertising img
-		promoBg = document.querySelector( '.promo__bg'), 						//promo background
-		promoGenre = promoBg.querySelector( '.promo__genre'), 				//promo genre
-		filmsList = document.querySelector( '.promo__interactive-list'), 		//interactive films list
+	const adv = document.querySelector('.promo__adv'), 						//sponsor advertising block
+		advImg = adv.querySelectorAll('img'), 								//advertising img
+		promoBg = document.querySelector('.promo__bg'), 						//promo background
+		promoGenre = promoBg.querySelector('.promo__genre'), 				//promo genre
+		filmsList = document.querySelector('.promo__interactive-list'), 		//interactive films list
 		filmsItems = document.querySelectorAll( '.promo__interactive-item'), 	//item interact films list
-		addForm = document.querySelector( '.add'),
-		addBtn = addForm.querySelector( 'button'),	  
-		addInput = addForm.querySelector( '.adding__input'),
+		addForm = document.querySelector('.add'),
+		addBtn = addForm.querySelector('button'),	  
+		addInput = addForm.querySelector('.adding__input'),
 		checkbox = addForm.querySelector ('[type="checkbox"]');
 		//cart = filmsItems.querySelector('::before');
 
@@ -98,26 +98,25 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		return str.substr(0, l) + "...";
 	}
 	
-	function removeAdv(advBlock){
-		advBlock.forEach(val => val.remove());  //remove advertising imgs
-	}
-	
+	function removeAdv(advBlocks){
+		advBlocks.forEach(val => val.remove());  //remove advertising imgs
+	}	
 
 		//Add capital letter
-	function capLetter( word){
+	function capLetter(word){
 		return word[0].toUpperCase() + word.slice(1);
 	}
 
 		//display sort movie list
-	function displayFilmList(){        
+	function displayFilmList(){        			
 		let films = movieDB.sort();
-		
+
 		filmsList.innerHTML = "";
 
 		films.forEach( (val, ind) => {
 			filmsList.innerHTML += `
 				<li class = 'promo__interactive-item'>
-					${ind + 1}. ${( (val.length > 21) && (cutItem(val)) || val)}
+					${ind + 1}. ${(val.length > 21) && cutItem(val) || val}
 					<div class="delete"></div>
 				<li>`;
 		});	
@@ -161,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		//del movie from list
 	function delMovieHandler(e){		
 		
-		( e.target.className == 'delete') && ( 
+		( e.target.classList.contains('delete')) && ( 
 			movieDB.remove(
 				+e.target.parentElement.innerText[0] - 1   //index = (item number on page) - 1
 			), 	
