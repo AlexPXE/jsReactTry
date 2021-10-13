@@ -38,7 +38,7 @@ function styles() {
 	.pipe( concat('style.min.css'))                                                             // Конкатенируем в файл app.min.js
 	.pipe( autopref({ overrideBrowserslist: ['last 10 versions'], grid: true }))                // Создадим префиксы с помощью Autoprefixer
 	.pipe( cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } ))      // Минифицируем стили
-	.pipe( dest('dist/css/'))                                                                    // Выгрузим результат в папку "app/css/"
+	.pipe( dest('src/css/'))                                                                    // Выгрузим результат в папку "app/css/"
 	.pipe( browserSync.stream());                                                               // Сделаем инъекцию в браузер
 }
 
