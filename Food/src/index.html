@@ -19,7 +19,7 @@
             </nav>
         </div>
         <div class="header__right-block">
-            <button class="btn btn_white">Связаться с нами</button>
+            <button data-open class="btn btn_white">Связаться с нами</button>
         </div>
     </header>
     <div class="sidepanel">
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="offer__action">
-                <button class="btn btn_dark">Связаться с нами</button>
+                <button data-open class="btn btn_dark">Связаться с нами</button>
             </div>
         </div>
         <div class="container">
@@ -114,18 +114,20 @@
                     </div>
                 </div>
                 <div class="offer__slider-wrapper">
-                    <div class="offer__slide">
-                        <img src="img/slider/pepper.jpg" alt="pepper">
-                    </div>
-                    <!-- <div class="offer__slide">
-                        <img src="img/slider/food-12.jpg" alt="food">
-                    </div>
-                    <div class="offer__slide">
-                        <img src="img/slider/olive-oil.jpg" alt="oil">
-                    </div>
-                    <div class="offer__slide">
-                        <img src="img/slider/paprika.jpg" alt="paprika">
-                    </div> -->
+                    <div class="slider-field">
+                        <div class="offer__slide">
+                            <img src="img/slider/pepper.jpg" alt="pepper">
+                        </div>
+                        <div class="offer__slide">
+                            <img src="img/slider/food-12.jpg" alt="food">
+                        </div>
+                        <div class="offer__slide">
+                            <img src="img/slider/olive-oil.jpg" alt="oil">
+                        </div>
+                        <div class="offer__slide">
+                            <img src="img/slider/paprika.jpg" alt="paprika">
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -224,10 +226,10 @@
         <div class="container">
             <div class="title">Заказывай пробный день прямо сейчас!</div>
             <form action="#" class="order__form">
-                <input required placeholder="Ваше имя" name="name" type="text" class="order__input">
-                <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="order__input">
-                <img src="icons/right.svg" alt="right">
-                <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                <input required placeholder="Ваше имя" name="name" type="text" class="order__input form__element">
+                <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="order__input form__element">
+                <img src="icons/right.svg" alt="right" class="form__element">
+                <button class="btn btn_dark btn_min form__element">Перезвонить мне</button>
             </form>
         </div>
     </div>
@@ -288,19 +290,19 @@
         </div>
     </footer>
 
-    <div class="modal">
+    <div class="modal overlay">
         <div class="modal__dialog">
             <div class="modal__content">
-                <form action="#">
+                <form class = "modal__form" action="#">
                     <div class="modal__close">&times;</div>
-                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
-                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
-                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
-                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                    <div class="modal__title form__element">Мы свяжемся с вами как можно быстрее!</div>
+                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input form__element">
+                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input form__element">
+                    <button class="btn btn_dark btn_min form__element">Перезвонить мне</button>
                 </form>
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/script.min.js"></script>
 </body>
 </html>

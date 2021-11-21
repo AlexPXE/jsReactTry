@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		},
 
 		remove: function(ind){
-
 			(ind >= 0) && 
 			(ind < this.movies.length) && 
 			( this.movies.splice(ind, 1) );
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 	function displayFilmList(){        			
 		let films = movieDB.sort();
 
-		filmsList.innerHTML = "";
+		filmsList.innerHTML = ""; //remove move list from the page
 
 		films.forEach( (val, ind) => {
 			filmsList.innerHTML += `
@@ -147,12 +146,9 @@ document.addEventListener('DOMContentLoaded', () => { 	//when DOM loaded
 		field && (
 			movieDB.addMovie(field), 
 			checkbox.checked && 
-			console.log("Добавляем любимый фильм")
-		); 
-
-		checkbox.checked && (
+			console.log("Добавляем любимый фильм"),
 			checkbox.checked = false
-		);
+		); 		
 
 		addInput.value = "";
 		displayFilmList();
