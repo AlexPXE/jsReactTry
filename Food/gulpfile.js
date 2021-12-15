@@ -34,18 +34,27 @@ function browsersync() {
     });
 }
 
+function browsersyncProd() {
+    browserSync.init({
+        server: {
+            baseDir: './dist'
+        }
+    });
+}
+
+
 function scripts() {
-	return src([                                        // Берем файлы из источников		
-		'src/js/main.js',                                    // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+	return src([                                        				// Берем файлы из источников		
+			'src/js/main.js',                                    		// Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
 		])
-	.pipe( concat('script.min.js'))                            // Конкатенируем в один файл
-	.pipe( uglify())                                         //Сжимаем JavaScript
-	.pipe( dest('src/js'))                                 //Выгружаем готовый файл в папку назначения
-	.pipe( browserSync.stream());                             // Триггерим Browsersync для обновления страницы
+	.pipe( concat('script.min.js'))                            		// Конкатенируем в один файл
+	.pipe( uglify())                                         		//Сжимаем JavaScript
+	.pipe( dest('src/js'))                                 			//Выгружаем готовый файл в папку назначения
+	.pipe( browserSync.stream());                             		// Триггерим Browsersync для обновления страницы
 }
 
 function styles() {
-	return src('src/' + preprocessor + '/style.' + prExt + '')                           // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
+	return src('src/' + preprocessor + '/style.' + prExt + '')                         // Выбираем источник: "app/sass/main.sass" или "app/less/main.less"
 	.pipe( eval(preprocessor)())                                                                // Преобразуем значение переменной "preprocessor" в функцию
 	.pipe( concat('style.min.css'))                                                             // Конкатенируем в файл app.min.css
 	.pipe( autopref({ overrideBrowserslist: ['last 10 versions'], grid: true }))                // Создадим префиксы с помощью Autoprefixer
@@ -77,6 +86,7 @@ exports.scripts = scripts;
 exports.styles = styles;
 exports.deploy = deploy;
 exports.jserver = jsonServ;
+exports.testprod = browsersyncProd;
     
         // Экспортируем дефолтный таск с нужным набором функций
         //Дефолтный таск exports.default позволяет запускать проект одной командой gulp в терминале.

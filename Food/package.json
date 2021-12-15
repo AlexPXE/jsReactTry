@@ -2,10 +2,16 @@
   "name": "food",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development"
   },
+  "browserist":[
+    "last 2 versions",
+    "> 1%",
+    "IE 10"
+  ],
   "repository": {
     "type": "git",
     "url": ""
@@ -17,7 +23,13 @@
   },
   "homepage": "",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
     "browser-sync": "^2.27.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -26,8 +38,18 @@
     "gulp-less": "^5.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify-es": "^3.0.0",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
     "json-server": "^0.17.0",
-    "sass": "^1.35.2"
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss": "^8.4.4",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.0.1",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "gulp-rename": "^2.0.0"

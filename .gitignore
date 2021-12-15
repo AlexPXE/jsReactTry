@@ -14,6 +14,8 @@ Food/.pnp
 
 # production
 /build
+Food/dist
+
 
 
 # misc
@@ -29,4 +31,5 @@ yarn-error.log*
 
 test.js
 mkdir.js
+server.php
 
